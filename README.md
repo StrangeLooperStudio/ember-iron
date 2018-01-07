@@ -1,7 +1,7 @@
 ember-iron
 ==============================================================================
 
-[Short description of the addon.]
+Immutability the Ember Way
 
 Installation
 ------------------------------------------------------------------------------
@@ -14,8 +14,17 @@ ember install ember-iron
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+How do you mix DADU with immutability?  Scope all state to its specific Object
+(route, controller, component) and then don't worry about it - its immutable.
+Pass properties and actions to modify those properties to child components as
+you normally would, the Ember Way!
 
+Ember-Iron offers a global store for your application state and a set of
+patterns around updating that state.  In development mode all state changes are
+logged with old and new states preserved, allowing you to inspect changes and
+debug more effectively.
+
+Coming soon:  Time-travel-debugging with Ember Inspector.
 
 Contributing
 ------------------------------------------------------------------------------
