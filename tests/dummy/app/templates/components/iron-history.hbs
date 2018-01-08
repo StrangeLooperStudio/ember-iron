@@ -1,0 +1,17 @@
+<h3>IronState History</h3>
+<ul class="iron-history">
+  <li class="iron-history__header">
+    <div class="iron-history__index">#</div>
+    <code>Info</code>
+    <code>Old Bucket</code>
+    <code>New Bucket</code>
+  </li>
+  {{#each history as |logEntry index|}}
+  <li class="iron-history__entry">
+    <div class="iron-history__index">{{index}}</div>
+    <code>id: {{logEntry.guid}}<br/> msg: {{logEntry.msg}}</code>
+    <code>{{json-stringify logEntry.oldBucket.props}}</code>
+    <code>{{json-stringify logEntry.newBucket.props}}</code>
+  </li>
+  {{/each}}
+</ul>

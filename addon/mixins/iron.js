@@ -1,5 +1,5 @@
 import Mixin from '@ember/object/mixin';
-import { get, set, computed } from '@ember/object';
+import { get, computed, defineProperty } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
 
@@ -29,11 +29,11 @@ export default Mixin.create({
     let props = {};
 
     allKeys(this)
-    .filter(key=> typeof get(this,key) === 'object' && get(this, `${key}.isIronProp`))
+    .filter(key=> key !== 'content' && typeof get(this, key) === 'object' && get(this, `${key}.isIronProp`))
     .forEach(key=> {
       const descriptor = get(this, key);
       props[key] = descriptor.defaultValue;
-      set(this, key, computed.readOnly(`${path}.${key}`));
+      defineProperty(this, key, computed.readOnly(`${path}.${key}`));
     });
 
     this.updateIron(props, 'init props');

@@ -1,0 +1,46 @@
+body, body * {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body > .ember-view {
+  margin: auto 20px;
+}
+
+.iron-history {
+  max-height: 20rem;
+  overflow-y: scroll;
+  border: 2px solid grey;
+  list-style:none;
+  padding-left: 0;
+}
+
+.iron-history__entry, .iron-history__header {
+  background-color: #aaa;
+  display: flex;
+  padding: 5px;
+  justify-content: space-around;
+}
+
+.iron-history__header {
+  background-color: #ccc;
+  padding: 5px;
+  position: sticky;
+  top: 0;
+}
+
+.iron-history__index {
+  align-self: center;
+  flex: 0 0 2rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.iron-history code {
+  flex: 1 1 25%;
+  background-color: #fff;
+  padding: 1rem;
+  word-break: break-all;
+  margin: 0.5rem;
+}
