@@ -3,6 +3,14 @@ import { get, computed, defineProperty } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
 
+const allKeys = obj => {
+  let keys = [];
+  for(let key in obj) {
+    keys.push(key);
+  }
+  return keys;
+}
+
 export default Mixin.create({
   ironState: service(),
 
@@ -39,11 +47,3 @@ export default Mixin.create({
     this.updateIron(props, 'init props');
   }
 });
-
-function allKeys(obj) {
-  let keys = [];
-  for(let key in obj) {
-    keys.push(key);
-  }
-  return keys;
-}
