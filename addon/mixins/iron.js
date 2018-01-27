@@ -3,6 +3,14 @@ import { get, set, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
 
+const allKeys = obj => {
+  let keys = [];
+  for(let key in obj) {
+    keys.push(key);
+  }
+  return keys;
+}
+
 export default Mixin.create({
   ironState: service(),
 
@@ -31,19 +39,10 @@ export default Mixin.create({
     allKeys(this)
     .filter(key=> typeof get(this,key) === 'object' && get(this, `${key}.isIronProp`))
     .forEach(key=> {
-      const descriptor = get(this, key);
-      props[key] = descriptor.defaultValue;
+      props[key] = get(this, key).defaultValue;
       set(this, key, computed.readOnly(`${path}.${key}`));
     });
 
     this.updateIron(props, 'init props');
   }
 });
-
-function allKeys(obj) {
-  let keys = [];
-  for(let key in obj) {
-    keys.push(key);
-  }
-  return keys;
-}

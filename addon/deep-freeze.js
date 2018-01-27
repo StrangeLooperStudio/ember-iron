@@ -1,3 +1,4 @@
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
 export default function deepFreeze(obj) {
 
   // Retrieve the property names defined on obj
