@@ -5,7 +5,7 @@ export default IronController.extend({
   searchText: IronProp('test'),
   actions: {
     updateSearchText(searchText) {
-      this.updateIron({ searchText }, 'application index controller #updateSearchText');
+      this.updateIron({ searchText }, 'step1 controller #updateSearchText');
     }
   }
 });
